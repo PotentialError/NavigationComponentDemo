@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/sendMessageFragment">
+
+    <fragment
+        android:id="@+id/sendMessageFragment"
+        android:name="com.example.navigationcomponentdemo.SendMessageFragment"
+        android:label="fragment_send_message"
+        tools:layout="@layout/fragment_send_message" >
+        <action
+            android:id="@+id/action_sendMessageFragment_to_replyFragment"
+            app:destination="@id/replyFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/replyFragment"
+        android:name="com.example.navigationcomponentdemo.ReplyFragment"
+        android:label="fragment_reply"
+        tools:layout="@layout/fragment_reply" >
+        <argument
+            android:name="messageArg"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_replyFragment_to_sendMessageFragment"
+            app:destination="@id/sendMessageFragment"
+            app:popUpTo="@id/sendMessageFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+</navigation>
