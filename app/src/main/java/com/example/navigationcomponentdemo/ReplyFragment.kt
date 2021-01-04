@@ -30,8 +30,7 @@ class ReplyFragment : Fragment() {
         val onClickListener: View.OnClickListener = View.OnClickListener { v: View->
             val reply: String = rootView.findViewById<EditText>(R.id.reply_edittext).text.toString()
             setFragmentResult("requestKey", bundleOf("bundleKey" to reply))
-            val action = ReplyFragmentDirections.actionReplyFragmentToSendMessageFragment()
-            rootView.findNavController().navigate(action)
+            rootView.findNavController().navigateUp()
         }
         sendReplyButton.setOnClickListener(onClickListener)
         return rootView
